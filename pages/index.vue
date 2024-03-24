@@ -13,7 +13,14 @@
 <script setup lang="ts">
 
 const {$http} = useNuxtApp()
-
-const {data: users, pending, error} = await useAsyncData('', () => $http.user.getUsers())
+const fetchGetUsers = async () => {
+  try {
+    const {data, pending, error} = await useAsyncData('', () => $http.user.getUser())
+    console.log(data)
+    console.log(error)
+  } catch (error) {
+    alert('Erro ao buscar usuários!')
+  }
+}
 
 </script>

@@ -7,16 +7,25 @@ export default class UserService {
         this.fetch = fetch
     }
 
-    async login(email: string, password: string) {
-        const result = await this.fetch('/login', {
+    async login(user: any) {
+        return await this.fetch('/api/login', {
+            credentials: 'include',
             method: 'POST',
-            body: JSON.stringify({email, password})
+            body: JSON.stringify(user)
         })
     }
 
-    async getUsers (){
-        return await this.fetch('/api/usuarios', {
+    async getUser (){
+        return await this.fetch('/api/user', {
+            credentials: 'include',
             method: 'GET'
+        });
+    }
+
+    async register (user: any){
+        return await this.fetch('/api/register', {
+            method: 'POST',
+            body: JSON.stringify(user)
         });
     }
 
