@@ -9,7 +9,6 @@ export default class UserService {
 
     async login(user: any) {
         return await this.fetch('/api/login', {
-            credentials: 'include',
             method: 'POST',
             body: JSON.stringify(user)
         })
@@ -17,7 +16,6 @@ export default class UserService {
 
     async getUser (){
         return await this.fetch('/api/user', {
-            credentials: 'include',
             method: 'GET'
         });
     }

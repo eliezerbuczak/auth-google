@@ -9,7 +9,8 @@ export default defineNuxtConfig({
             {
                 autoImports: ['defineStore', 'storeToRefs'],
             },
-        ]
+        ],
+        '@pinia-plugin-persistedstate/nuxt',
     ],
     imports: {
         dirs: ['~/stores/']

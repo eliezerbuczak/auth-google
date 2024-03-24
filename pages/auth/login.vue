@@ -9,15 +9,18 @@
 <script setup lang="ts">
 
 const form = reactive({
-  email: '',
-  password: ''
+  email: 'tst3@g.com',
+  password: 'tst3'
 })
 const {$http} = useNuxtApp()
 
 const login = async () => {
   try {
     const {data, pending, error} = await useAsyncData('', () => $http.user.login(form))
-    alert(data)
+    console.log(data)
+    useProfileStore().token = data.value.access_token
+    navigateTo('/')
+
   } catch (error) {
     alert('Erro ao logar usuário!')
   }
