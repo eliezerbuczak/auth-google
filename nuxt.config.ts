@@ -14,7 +14,7 @@ export default defineNuxtConfig({
         'nuxt-vue3-google-signin'
     ],
     googleSignIn: {
-        clientId: process.env.SERVER_BACK_END,
+        clientId: process.env.GOOGLE_CLIENT_ID,
     },
     imports: {
         dirs: ['~/stores/']
