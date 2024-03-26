@@ -1,12 +1,22 @@
 <template>
   <NuxtLoadingIndicator color="blue"/>
-  <div>
-    <input type="text" v-model="form.email" placeholder="Email">
-    <input type="password" v-model="form.password" placeholder="Senha">
-    <button @click="login">Login</button>
+  <div class="flex w-full h-screen justify-center items-center">
+    <div class="flex flex-col space-y-4 ">
+      <input class="border rounded p-2" type="text" v-model="form.email" placeholder="Email">
+      <input class="border rounded p-2" type="password" v-model="form.password" placeholder="Senha">
+      <button @click="login" class="p-2 bg-blue-700 text-white rounded">Login</button>
+      <GoogleSignInButton
+          @success="handleLoginSuccess"
+          @error="handleLoginError"
+      ></GoogleSignInButton>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
+import {
+  GoogleSignInButton,
+  type CredentialResponse,
+} from "vue3-google-signin";
 
 const form = reactive({
   email: 'tst3@g.com',
@@ -25,4 +35,15 @@ const login = async () => {
     alert('Erro ao logar usuário!')
   }
 }
+
+const handleLoginSuccess = (response: CredentialResponse) => {
+  console.log("Access Token", response);
+};
+
+// handle an error event
+const handleLoginError = () => {
+  console.error("Login failed");
+};
+
+
 </script>

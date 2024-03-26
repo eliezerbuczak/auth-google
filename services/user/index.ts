@@ -27,5 +27,11 @@ export default class UserService {
         });
     }
 
+    async loginWithGoogle (){
+        return await this.fetch('/api/login-google', {
+            method: 'GET'
+        });
+    }
+
 
 }

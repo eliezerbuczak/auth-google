@@ -11,7 +11,11 @@ export default defineNuxtConfig({
             },
         ],
         '@pinia-plugin-persistedstate/nuxt',
+        'nuxt-vue3-google-signin'
     ],
+    googleSignIn: {
+        clientId: '91251673500-d6172fldmbtvgv8h23mvg3kelebc11l8.apps.googleusercontent.com',
+    },
     imports: {
         dirs: ['~/stores/']
     },
